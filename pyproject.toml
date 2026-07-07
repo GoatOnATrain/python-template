@@ -1,0 +1,51 @@
+[project]
+name = "python-template"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "GoatOnATrain", email = "329514103+GoatOnATrain@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.poetry]
+packages = [
+    {include = "example_package", from = "src"},
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "ruff (>=0.15.0,<0.16.0)",
+    "pytest (>=8.0.0,<9.0.0)",
+    "mypy (>=1.14.0,<2.0.0)",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = []
+
+[tool.ruff.lint.isort]
+known-first-party = ["example_package"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.mypy]
+files = ["src"]
+python_version = "3.12"
+ignore_missing_imports = true
