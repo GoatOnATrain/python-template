@@ -30,3 +30,10 @@ poetry run pytest -v             # tests
 ```
 
 CI runs all four on every push and pull request to `main`.
+
+## Conventions
+
+Write tests **test-first** — red → green → refactor. Add the failing test that
+encodes the behaviour, confirm it fails for the right reason, implement the
+minimum to make it pass, then refactor with the suite green. See `CLAUDE.md`
+for the full convention (it also instructs coding agents working in the repo).
