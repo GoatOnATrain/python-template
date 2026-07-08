@@ -16,6 +16,12 @@ Poetry, `src/` layout, Python 3.12. Feedback loops:
 
 All four run in CI on push/PR and must pass before work is considered done.
 
+- **Hooks:** `poetry run pre-commit install` wires up `.pre-commit-config.yaml` —
+  ruff/format/mypy + file hygiene run on commit, pytest on push, all via
+  `poetry run` (same versions as CI). A warn-only `scripts/check-test-first.sh`
+  nudges toward the test-first convention below. Hooks are a local convenience;
+  **CI is the real gate.** Never bypass with `--no-verify`.
+
 ## Conventions
 
 - **Write tests test-first (red → green → refactor).** Whenever work involves

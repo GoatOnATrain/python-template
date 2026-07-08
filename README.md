@@ -20,6 +20,17 @@ and `TVandAnimeAutoRipper`:
    poetry install
    ```
 
+4. Install the git hooks (optional but recommended):
+
+   ```sh
+   poetry run pre-commit install
+   ```
+
+   Fast checks (ruff, format, mypy, file hygiene) then run on every commit and
+   pytest on every push, via the same `poetry run` versions as CI. A warn-only
+   test-first reminder nudges when `src/` changes without a matching test. CI
+   remains the real gate — never bypass hooks with `--no-verify`.
+
 ## Common commands
 
 ```sh
